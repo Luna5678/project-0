@@ -4,15 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Main CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <!-- Main JS -->
     <script src="./scripts/app.js" defer></script>
-    <title>Project 0 - Raise a Pig</title>
+    <title>piggy</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Raise a Piggy</h1></header>
+    <div id="game-container">
+        <section id="health-bar">
+            <span id="health-clean">
+                <img src="./images/rubber-duck.svg" alt="rubber duck">
+                <span id="clean-Score"></span>
+            </span>
+            <span id="health-love">
+                <img src="./images/heart.svg" alt="heart">
+                <span id="love-Score"></span>
+            </span>
+            <span id="health-food">
+                <img src="images/healthy-food.svg" alt="fruits">
+                <span id="food-Score"></span>
+            </span>
+        </section>
+       
+        <section id="main-image"> 
+            <img src="./images/barn.svg" alt="barn">
+        </section>
+        
+        <section id="message">
+            <p>Let's raise a pig!
+                <br>
+                What would you like to name her?
+            </p>
+        <input type="text">
+        <button></button>
+        </section>
+
+    </div>
+    <footer>
+        Images sourced from: 
+    </footer>
 </body>
 </html>
