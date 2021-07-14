@@ -366,6 +366,7 @@ h1 {
   max-height: 1000px;
   margin: auto;
   border: black 2px solid;
+  position: relative;
 }
 
 #health-bar {
@@ -381,7 +382,7 @@ h1 {
 
 #main-image img {
   width: 200px;
-  margin-top: 30%;
+  margin-top: 150px;
 }
 
 #message {
@@ -394,8 +395,20 @@ h1 {
   margin: 15px auto;
 }
 
+button {
+  text-transform: uppercase;
+}
+
 footer {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+#row-buttons {
+  height: 150px;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
 }

@@ -30,6 +30,7 @@ ICEBOX:
 
 1. Header box of the game name
 2. every time you level up, confetti will show around the pig to show that you have leveled up
+3. add effect when you click on the bottom buttons
 
 CONSTANT ANIMATION: tilt the head 15% left and right every second.
 
