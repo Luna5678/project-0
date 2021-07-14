@@ -13,24 +13,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <!-- Main JS -->
     <script src="./scripts/app.js" defer></script>
-    <title>piggy</title>
+    <title>Raise a Pig</title>
 </head>
 <body>
     <header>
-        <h1>Raise a Piggy</h1></header>
+        <h1>Raise a Pig</h1></header>
     <div id="game-container">
-        <section id="health-bar">
+        <section class="health-bar">
             <span id="health-clean">
-                <img src="./images/rubber-duck.svg" alt="rubber duck">
-                <span id="clean-Score"></span>
+                <img src="./images/rubber-duck.svg" alt="rubber duck" id="health-clean-image">
+                <span id="clean-score">3</span>
             </span>
             <span id="health-love">
-                <img src="./images/heart.svg" alt="heart">
-                <span id="love-Score"></span>
+                <img src="./images/heart.svg" alt="heart" id="health-love-image">
+                <!-- <span id="love-score"></span> -->
             </span>
             <span id="health-food">
-                <img src="images/healthy-food.svg" alt="fruits">
-                <span id="food-Score"></span>
+                <img src="images/healthy-food.svg" alt="fruits" id="health-food-image">
+                <!-- <span id="food-score"></span> -->
             </span>
         </section>
        
@@ -39,17 +39,22 @@
         </section>
         
         <section id="message">
-            <p>Let's raise a pig!
-                <br>
-                What would you like to name her?
+            <p>You must keep your pig healthy. A number of 10 means fully satisfied, number 1 means close to death. Avoid getting to 0 so your pig will stay alive! Click on the buttons below to provide your pig with what she needs.
             </p>
-        <input type="text">
-        <button>start</button>
+        <input type="text" placeholder="Your pig's name">
+        <button id="start-button">start</button>
+        </section>
+
+        <section id="button-bar">
+            <button><img src="./images/rubber-duck.svg" alt="rubber duck" id="clean-button"></button>
+            <img src="./images/heart.svg" alt="heart" id="heart-button">
+            <img src="images/healthy-food.svg" alt="fruits" id="food-button">
         </section>
 
     </div>
     <footer>
-        Images sourced from: 
+        <p id="timer-text">10</p>
+        <button id="btn-start">Start timer</button>
     </footer>
 </body>
 </html>

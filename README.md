@@ -29,7 +29,9 @@ ICEBOX:
 3. add effect when you click on the bottom buttons
 4. There will be a light switch at the bottom right corner where you can turn on/off a light/night mode. it will just make the background dark and the top meters white. opposite for light mode.
 5. when the meter is 2 and 1, the text color will turn red, or the background of it will turn red
-6. When a button is clicked, the pig will be surrounded with icons that match the care you gave her. bath -> bubbles. heart -> heart. apple -> apple core.
+6. for the display name, change the font to something more farm-ish
+7. When hovering over the bottom buttons, make the mouse cursor pointer
+8. When a button is clicked, the pig will be surrounded with icons that match the care you gave her. bath -> bubbles. heart -> heart. apple -> apple core.
 
 CONSTANT ANIMATION: tilt the head 15% left and right every second.
 
