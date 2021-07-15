@@ -2,7 +2,7 @@
 const game = {
     username: null,
     stage: 0,
-    time: 5,
+    time: 11,
     cleanScore: 5,
     loveScore: 5,
     foodScore: 5,
@@ -12,8 +12,8 @@ const game = {
         game.newPig();
         game.displayName();
         game.updateScores();
-        //2 min timer for round (consistent for all rounds)
-        //timer for health meters (stage 1: 2 seconds, stage 2: 5 seconds, stage 3: 10 seconds)
+        game.startMeter();
+        game.startTimer();
     },
     hideMessage() {
         $('#message').hide();
@@ -37,11 +37,29 @@ const game = {
     reduceTime() {
         game.time--;
         console.log(game.time);
-        if (game.time <=0) {
+        if (game.cleanScore === 0) { //lost game
             clearInterval(game.timer);
+        } else if (game.time <=0) { //advance game
+            game.stage+=1;
+            clearInterval(game.timer);
+            game.cleanScore = 6;
+            if (game.stage === 1) {
+                $('#main-image img').attr('src', './images/pig-piglet.png');
+                game.time = 11;
+                game.startTimer();
+            } else if (game.stage === 2) {
+                $('#main-image img').attr('src', './images/pig-adult.svg');
+                game.time = 11;
+                game.startTimer();
+            } else {
+                console.log('you won');
+                $('#clean-score').hide();
+                game.transferStage();
+            }
         }
     },
 
+    //METER TIMER//
     meter: null,
     startMeter(){
         this.meter = setInterval(game.reduceMeter, 1000);
@@ -49,52 +67,40 @@ const game = {
     reduceMeter(){
         game.cleanScore--;
         $('#clean-score').text(`${game.cleanScore}`);
-        if (game.cleanScore <=0) {
+        if (game.cleanScore <=0 && game.stage !== 3) {
+            clearInterval(game.meter);
+            game.rip();
+        } else if (game.stage === 3){
             clearInterval(game.meter);
         }
-    }
+    },
+    rip(){
+        game.cleanScore=0;
+        // game.loveScore=0;
+        // game.foodScore=0;
+        $('#main-image img').attr('src', './images/pig-rip.png');
+    },
     
-    // rip (){
-    //     if (game.cleanScore === 0 || game.loveScore === 0 || game.foodScore ===0) {
-            
-    //     }
-    // },
-//     
-//     resetScores(){
-//         game.cleanScore = 3;
-//     },
+    transferStage() {
+        $('#main-image img').attr('src', './images/truck.svg');
+        $('#main-image').append(`<div><p>CONGRATS! You did a great job. ${game.username} is now ready for her next form...</p><br><button id="next-button">NEXT</button></div>`);
+        $('#next-button').on('click', game.breakfast);
+        // $('#message p').text(`CONGRATS! ${game.username} is ready for transfer...`);
+        // $('#message').show();
+        // $(':text').hide();
+        // $('#message button').attr('id','next-button');
+        // $('#message button').text('NEXT');
 
-//     newStage() {
-//         clearInterval(game.timer);
-//         game.resetScores();
-//         if (game.round > 3){
-//             console.log("Ready for transfer");
-//         }
+    },
 
-//     }
+    breakfast(){
+        $('#main-image img').attr('src', './images/pig-breakfast.jpg');
+        $('#main-image div').hide();
+        $('#main-image').append(`<div><p>Yum! Breakfast was delicious. Thank you ${game.username} for supplying an unforgettable meal!</p><br><button id="restart">RESTART GAME</button></div>`)
+        // $('#restart').on('click', location.reload());
+    }
 
 };
 
 
 $('#start-button').on("click", game.start);
-
-
-// /* YOUTUBE */
-
-// const $timerTex = $('#timer-text');
-// const $btnStart = $('#btn-start');
-
-// let gameTimer = 10;
-// let intervalID;
-
-
-// ($btnStart).on('click',  function(){
-//     intervalID = setInterval(function(){
-//         gameTimer-=1;
-//         $($timerTex).text(gameTimer);
-//         }, 1000);
-//         if (intervalID === 0) {
-//             clearInterval(intervalID)
-//         }
-//         });
-
