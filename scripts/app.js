@@ -87,7 +87,7 @@ const game = {
         $('#clean-score').text(`${game.cleanScore}`);
         $('#love-score').text(`${game.loveScore}`);
         $('#food-score').text(`${game.foodScore}`);
-        if ((game.cleanScore <=0 || game.loveScore <=0 || game.foodScore <=0 ) && game.stage !== 3) {
+        if ((game.cleanScore <=0 || game.loveScore <=0 || game.foodScore <=0 ) && game.stage !== 4) {
             clearInterval(game.meter);
             game.rip();
         } else if (game.stage === 4){
@@ -123,3 +123,7 @@ const game = {
 };
 
 $('#start-button').on("click", game.start);
+
+$('#mode').on('click', function(){
+    console.log('mode clicked');
+})

@@ -19,41 +19,43 @@
     <header>
         <h1>Raise a Pig</h1></header>
     <div id="game-container">
-        <section class="health-bar">
-            <span id="health-clean">
-                <img src="./images/rubber-duck.svg" alt="rubber duck" id="health-clean-image">
-                <span id="clean-score">5</span>
-            </span>
-            <span id="health-love">
-                <img src="./images/heart.svg" alt="heart" id="health-love-image">
-                <span id="love-score">5</span>
-            </span>
-            <span id="health-food">
-                <img src="images/healthy-food.svg" alt="fruits" id="health-food-image">
-                <span id="food-score">5</span>
-            </span>
-        </section>
-       
-        <section id="main-image"> 
-            <img src="./images/barn.svg" alt="barn">
-        </section>
+        <div id="game-screen">
+            <section class="health-bar">
+                <span id="health-clean">
+                    <img src="./images/rubber-duck.svg" alt="rubber duck" id="health-clean-image">
+                    <span id="clean-score">5</span>
+                </span>
+                <span id="health-love">
+                    <img src="./images/heart.svg" alt="heart" id="health-love-image">
+                    <span id="love-score">5</span>
+                </span>
+                <span id="health-food">
+                    <img src="images/healthy-food.svg" alt="fruits" id="health-food-image">
+                    <span id="food-score">5</span>
+                </span>
+            </section>
         
-        <section id="message">
-            <p>You must keep your pig healthy. A number of 10 means fully satisfied, number 1 means close to death. Avoid getting to 0 so your pig will stay alive! Click on the buttons below to provide your pig with what she needs.
-            </p>
-        </section>
-        <input type="text" placeholder="Your pig's name" id="input-name">
-        <button id="start-button">start</button>
+            <section id="main-image"> 
+                <img src="./images/barn.svg" alt="barn">
+            </section>
+            
+            <section id="message">
+                <p>You must keep your pig healthy. A number of 10 means fully satisfied, number 1 means close to death. Avoid getting to 0 so your pig will stay alive! Click on the buttons below to provide your pig with what she needs.
+                </p>
+            </section>
+            <input type="text" placeholder="Your pig's name" id="input-name">
+            <button id="start-button">start</button>
 
 
-        <section id="button-bar">
-            <button><img src="./images/rubber-duck.svg" alt="rubber duck" id="clean-button"></button>
-            <img src="./images/heart.svg" alt="heart" id="love-button">
-            <img src="images/healthy-food.svg" alt="fruits" id="food-button">
-        </section>
-
+            <section id="button-bar">
+                <button><img src="./images/rubber-duck.svg" alt="rubber duck" id="clean-button"></button>
+                <img src="./images/heart.svg" alt="heart" id="love-button">
+                <img src="images/healthy-food.svg" alt="fruits" id="food-button">
+            </section>
+        </div>
     </div>
     <footer>
+        <button id="mode">Switch light/dark mode</button><br>
 Images sourced by:
     </footer>
 </body>

@@ -369,6 +369,12 @@ h1 {
   position: relative;
 }
 
+.dark {
+  background-color: grey;
+  color: white;
+  height: 100%;
+}
+
 .health-bar {
   display: flex;
   justify-content: space-around;
