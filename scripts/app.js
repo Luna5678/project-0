@@ -22,6 +22,7 @@ const game = {
     },
     newPig() {
         $('#main-image img').attr('src', './images/pig-baby.png');
+        $('footer h3').text('Stage: 1');
     },
     displayName() {
         $('#main-image').prepend(`<h2><em>${game.username}</em></h2>`);
@@ -59,14 +60,17 @@ const game = {
             game.foodScore = 6
             if (game.stage === 2) {
                 $('#main-image img').attr('src', './images/pig-piglet.png');
+                $('footer h3').text('Stage: 2');
                 game.time = 11;
                 game.startTimer();
             } else if (game.stage === 3) {
                 $('#main-image img').attr('src', './images/pig-adult.svg');
+                $('footer h3').text('Stage: 3');
                 game.time = 11;
                 game.startTimer();
             } else {
                 console.log('you won');
+                $('footer h3').text('You won!');
                 $('#clean-score').hide(); 
                 $('#love-score').hide(); 
                 $('#food-score').hide(); 
