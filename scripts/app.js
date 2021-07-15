@@ -52,9 +52,9 @@ const game = {
     reduceTime() {
         game.time--;
         console.log(game.time);
-        if (game.cleanScore === 0 || game.foodScore === 0 || game.loveScore === 0) { //lost game
+        if (game.cleanScore === 0 || game.foodScore === 0 || game.loveScore === 0) { 
             clearInterval(game.timer);
-        } else if (game.time <=0) { //advance game
+        } else if (game.time <=0) { 
             game.stage+=1;
             clearInterval(game.timer);
             game.cleanScore = 6; 
@@ -76,7 +76,7 @@ const game = {
                 game.startTimer();
             } else {
                 console.log('you won');
-                $('footer h3').text('You won!');
+                $('footer h3').text(`You've won!`);
                 $('#clean-score').hide(); 
                 $('#love-score').hide(); 
                 $('#food-score').hide(); 
@@ -88,7 +88,7 @@ const game = {
     // METER TIMER //
     meter: null,
     startMeter(){
-        this.meter = setInterval(game.reduceMeter, 1000);
+        this.meter = setInterval(game.reduceMeter, 1200);
     },
     reduceMeter(){
         game.cleanScore--;
@@ -124,12 +124,6 @@ const game = {
             'alt':'loading truck'});
         $('#main-image').append(`<div id="transfer"><p>CONGRATS! You did a great job. ${game.username} is now ready for her next form...</p><br><button id="next-button">NEXT</button></div>`);
         $('#next-button').on('click', game.breakfast);
-        // $('#message p').text(`CONGRATS! ${game.username} is ready for transfer...`);
-        // $('#message').show();
-        // $(':text').hide();
-        // $('#message button').attr('id','next-button');
-        // $('#message button').text('NEXT');
-
     },
 
     breakfast(){
