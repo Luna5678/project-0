@@ -125,5 +125,9 @@ const game = {
 $('#start-button').on("click", game.start);
 
 $('#mode').on('click', function(){
-    console.log('mode clicked');
+    if ($('.game-screen').hasClass('dark')){
+        $('.game-screen').removeClass('dark');
+    } else {
+        $('.game-screen').addClass('dark');
+    }
 })
