@@ -22,18 +22,9 @@ https://app.moqups.com/F5C4yNrilp/view/page/a9de4d023
 
 6. The last stage is the adult stage, and if you complete the 2 minutes for this successfully then the game ends. The meter numbers and the bottom buttons will disappear, and it will show you a "Next" button. When you click that, the screen will change to a breakfast dish and this will be the end game. There will be a Restart button for you to start the game all over again.
 
-ICEBOX:
+There is a light switch at the bottom corner where you can turn on/off dark mode. The game automatically starts in light mode. Dark mode means the background turns grey and the text turns white.
 
-1. Header box of the game name
-2. every time you level up, confetti will show around the pig to show that you have leveled up
-3. add effect when you click on the bottom buttons
-4. There will be a light switch at the bottom right corner where you can turn on/off a light/night mode. it will just make the background dark and the top meters white. opposite for light mode.
-5. when the meter is 2 and 1, the text color will turn red, or the background of it will turn red
-6. for the display name, change the font to something more farm-ish
-7. When hovering over the bottom buttons, make the mouse cursor pointer
-8. When a button is clicked, the pig will be surrounded with icons that match the care you gave her. bath -> bubbles. heart -> heart. apple -> apple core.
-
-CONSTANT ANIMATION: tilt the head 15% left and right every second.
+ICEBOX: 3. add effect when you click on the bottom buttons 7. When hovering over the bottom buttons, make the mouse cursor pointer 6. for the display name, change the font to something more farm-ish
 
 **_ MILESTONES _**
 
@@ -46,10 +37,19 @@ CONSTANT ANIMATION: tilt the head 15% left and right every second.
 3. create the input box and attach the value to the pig.name.
 4. when you hit submit, start the game and set this as a event listener
 5. create the meters at the top that will correspond with buttons at the bottom
+6. Add animation to the pig
+7. timers for the stage and meters
 
-6. timers for the stage and meters
 
-=== NEED TO DO ===
 
-- There is a progress bar tag on HTML. can give a value, and if using jquery, ise .val and attach it to a click event listener to affect the meter.
-- Credit the image artists. (Flaticons in future iterations will be customized)
+**_ ICONS MADE BY _**
+Squeaky duck: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Heart: <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Fruits: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Barn: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Baby pig: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Piglet: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Adult pig: <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+RIP headstone: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Pickup Truck: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+Breakfast English muffin: <a href="https://www.pexels.com/@angele-j-35172?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">Angele J</a> from <a hred="https://www.pexels.com/photo/bacon-sandwich-on-plate-139746/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">Pexels</a>
