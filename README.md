@@ -3,28 +3,33 @@
 GA SEI Project 0 Tamagotchi
 
 **_ GOAL _**
+
 An interactive game where you need to take care of a pig to fill its life cycle from newborn, piglet, pig, to bacon.
 
 **_ WIREFRAME _**
+
 https://app.moqups.com/F5C4yNrilp/view/page/a9de4d023
 
 **_ USER STORIES _**
 
-1. when you open the link, the first screen has a welcome message and then an input box to enter text. The text will be for the name of your pig. A submit button will be next to it, the name will be stored, and the game will officially start.
+1. When you open the link, the user will see 3 small icons at the top with the number of 5 next to them. These are the metrics you start with. The number can go from 0 to 10 once the game starts. Every stage will reset at 5. These will decrement by 1 every 1.2 seconds. After the user hits START, the user will be able to click the bottom larger icons. They will increase the meter at the top by 1 when clicked. Each stage will last 10 seconds. As long as the user keeps the meters at the top above 0, they can advance to the next stage. There are 3 stages in total. 
 
-2. You will raise a pig from birth to bacon. There are 3 buttons on the bottom that user can click to give the pig cleanliness, love, and health. Each one corresponds to meters at the top of the screen for Cleanliness, Love, and Health at the top of the screen. When the user clicks on one of the 3 buttons at the bottom, the corresponding meter at the top will increase by 1. The max number is 10 and the minimum is 1. You want to keep the meter at 1 or up.
+. There is a light switch at the bottom corner where you can turn on/off dark mode at any time. The game automatically starts in light mode. Dark mode means the background turns grey and the text turns white.
 
-3. Each meter will start at a specific amount, depending on what life stage the pig is on. The meters will drop at X amount of seconds, depending on the life stage that she is on. Each stage of life will last 2 minutes. If any of the meters hit 0 then the pig will die.
+. There is a barn icon, game instructions, an input bar for your pig's name, and a START button. Once you hit START, the instructions, input bar, and start button will disappear. The START button helps store the pig's name in memory so it will always display above the main image. The icon will change to a baby pig. The game will start counting down from 10 internally.
 
-4. If your pig dies, the game will be over. You will see a message that tells you the game is over, the meters stop counting and the 3 buttons bar will not show anymore. You will have the option to restart.
+. There are 3 icons (duck, heart, fruits) on the bottom that user can click to clean, love, or feed the pig. Each one icon corresponds to meters at the top of the screen. When the user clicks on one of these icons, the corresponding meter will increase by 1.
 
-5. At the end of each stage (2 minutes), as long as the health is between 1 and 10, you can move on to the next life stage. You will see the pig icon upgrade to a different version, indicating the pig has entered the next life stage. The meters will reset to 3 and will start decrementing again.
+. If all the meters stay above 0 before the timer runs out, you will advance to the next stage. This will be true from stage 1-3. The stage number will be updated on the bottom left. The pig icon will also update at each advancement as another indication that the user has moved on to the next life stage. If the user completes stage 3, the bottom updates to "You've won!", the meters at the top will no longer display scores, and the icons at the bottom will have no longer affect the game, however they will still be visible.
 
-6. The last stage is the adult stage, and if you complete the 2 minutes for this successfully then the game ends. The meter numbers and the bottom buttons will disappear, and it will show you a "Next" button. When you click that, the screen will change to a breakfast dish and this will be the end game. There will be a Restart button for you to start the game all over again.
+. The objective is to raise the pig from birth to bacon. If the user completes stage 3, an image of a truck will be shown and this means the pig is ready for her next life chapter. There is a NEXT button to proceed to the next chapter. When the user clicks the NEXT button, the user will be in the pig's final chapter. The final chapter for the game is that the pig has become bacon for a delicious english muffin dish. This is the end of the entire game. The user will have the option to RESET game, which will refresh the page to start over.
 
-There is a light switch at the bottom corner where you can turn on/off dark mode. The game automatically starts in light mode. Dark mode means the background turns grey and the text turns white.
+. If any of the meters reach 0, this means that the pig has died and the game is over. The rest of the numbers will turn to 0. The main image changes to a cemetary headstone icon. The bottom icons are clickable if you want to live in regret, however, they cannot revive the pig. All timers end. User will have the option to RESTART the game.
 
-ICEBOX: 3. add effect when you click on the bottom buttons 7. When hovering over the bottom buttons, make the mouse cursor pointer 6. for the display name, change the font to something more farm-ish
+
+ICEBOX: 
+3. add effect when you click on the bottom buttons 
+7. When hovering over the bottom buttons, make the mouse cursor pointer 6. for the display name, change the font to something more farm-ish
 
 **_ MILESTONES _**
 
@@ -32,24 +37,45 @@ ICEBOX: 3. add effect when you click on the bottom buttons 7. When hovering over
    - container for whole box since the game screen will not take up full screen size.
    - top container for meters
    - middle container for the pig icon and the animations
-   - bottom container for 4 buttons.
-2. create pig object -> name, stage num, cleanScore, loveScore, healthScore, age num 1-3
-3. create the input box and attach the value to the pig.name.
-4. when you hit submit, start the game and set this as a event listener
-5. create the meters at the top that will correspond with buttons at the bottom
-6. Add animation to the pig
-7. timers for the stage and meters
-
-
+   - bottom container for 4 buttons
+   - class to turn off/on the dark mode
+   - add images
+2. create pig object (name, stage num, cleanScore, loveScore, foodScore, time)
+3. create on click function so game and its methods will run when user hits START button
+4. make methods in the game object:
+   - save the value of input textbox to the username 
+   - display the input's value above the main image
+   - change the main image whenever you enter new stage
+   - when you click the bottom icons, the corresponding number at the top should increase by 1
+   - hide the message and any buttons in the main game screen while the game is running (may be defined by timer since there are stages that are static)
+   - timers
+5. make a overall game timer 
+   - count down from 10 seconds at each stage
+   - conditional statement if the meters at the top reach 0 then this timer will stop
+   - increase the game stage by 1 every time the timer hits 0 
+6. when overall game timer hits 0
+   - change the main image to the upgraded pig
+   - reset timer
+   - change stage text at bottom screen
+7. when overall game timer hits 0 and the meters are all above 0, remove all the scores, stop timer, and enter new screen with just a new main image and button
+8. make a timer that will decrement the meter at the top every ~1 second
+   - if meter reaches 0, then make all the other meters 0 and stop all timers
+   - make new page for RIP with updated image and option to RESTART game
+9. after the transfer page, make new page for final chapter of pig. simple image, text, and button to restart game.
+10. Add animation to the pig
+Make dark/light mode with adding/removing a class with special css properties
 
 **_ ICONS MADE BY _**
-Squeaky duck: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-Heart: <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-Fruits: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-Barn: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-Baby pig: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-Piglet: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-Adult pig: <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-RIP headstone: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-Pickup Truck: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-Breakfast English muffin: <a href="https://www.pexels.com/@angele-j-35172?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">Angele J</a> from <a hred="https://www.pexels.com/photo/bacon-sandwich-on-plate-139746/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">Pexels</a>
+
+<ul>
+<li>Squeaky duck: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>Heart: <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>Fruits: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>Barn: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>Baby pig: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>Piglet: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>Adult pig: <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>RIP headstone: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>Pickup Truck: <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+<li>Breakfast English muffin: <a href="https://www.pexels.com/@angele-j-35172?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">Angele J</a> from <a hred="https://www.pexels.com/photo/bacon-sandwich-on-plate-139746/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">Pexels</a></li>
+</ul>
