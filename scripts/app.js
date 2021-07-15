@@ -1,7 +1,7 @@
 
 const game = {
     username: null,
-    stage: 0,
+    stage: 1,
     time: 11,
     cleanScore: 5,
     loveScore: 5,
@@ -17,6 +17,8 @@ const game = {
     },
     hideMessage() {
         $('#message').hide();
+        $('input').remove();
+        $('#start-button').remove();
     },
     newPig() {
         $('#main-image img').attr('src', './images/pig-baby.png');
@@ -55,11 +57,11 @@ const game = {
             game.cleanScore = 6; 
             game.loveScore = 6;
             game.foodScore = 6
-            if (game.stage === 1) {
+            if (game.stage === 2) {
                 $('#main-image img').attr('src', './images/pig-piglet.png');
                 game.time = 11;
                 game.startTimer();
-            } else if (game.stage === 2) {
+            } else if (game.stage === 3) {
                 $('#main-image img').attr('src', './images/pig-adult.svg');
                 game.time = 11;
                 game.startTimer();
@@ -88,7 +90,7 @@ const game = {
         if ((game.cleanScore <=0 || game.loveScore <=0 || game.foodScore <=0 ) && game.stage !== 3) {
             clearInterval(game.meter);
             game.rip();
-        } else if (game.stage === 3){
+        } else if (game.stage === 4){
             clearInterval(game.meter);
         }
     },
@@ -101,7 +103,7 @@ const game = {
     
     transferStage() {
         $('#main-image img').attr('src', './images/truck.svg');
-        $('#main-image').append(`<div><p>CONGRATS! You did a great job. ${game.username} is now ready for her next form...</p><br><button id="next-button">NEXT</button></div>`);
+        $('#main-image').append(`<div id="transfer"><p>CONGRATS! You did a great job. ${game.username} is now ready for her next form...</p><br><button id="next-button">NEXT</button></div>`);
         $('#next-button').on('click', game.breakfast);
         // $('#message p').text(`CONGRATS! ${game.username} is ready for transfer...`);
         // $('#message').show();
@@ -113,12 +115,11 @@ const game = {
 
     breakfast(){
         $('#main-image img').attr('src', './images/pig-breakfast.jpg');
-        $('#main-image div').hide();
+        $('#transfer').remove();
         $('#main-image').append(`<div><p>Yum! Breakfast was delicious. Thank you ${game.username} for supplying an unforgettable meal!</p><br><button id="restart">RESTART GAME</button></div>`)
-        // $('#restart').on('click', location.reload());
+        $('#restart').on('click', location.reload());
     }
 
 };
-
 
 $('#start-button').on("click", game.start);
