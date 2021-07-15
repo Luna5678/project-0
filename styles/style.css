@@ -399,19 +399,19 @@ h1 {
 
 @keyframes bounce {
   0% {
-    top: 10px;
+    top: 15px;
   }
   25% {
     top: 0px;
   }
   50% {
-    bottom: 10px;
+    bottom: 15px;
   }
   75% {
     bottom: 0px;
   }
   100% {
-    top: 10px;
+    top: 15px;
   }
 }
 
