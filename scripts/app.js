@@ -99,10 +99,13 @@ const game = {
         $('#love-score').text(`0`);
         $('#food-score').text(`0`);
         $('#main-image img').attr('src', './images/pig-rip.png');
-        $('#main-image').after('<button>NEXT</button>');
+        $('#main-image').after('<button>RESTART GAME</button>');
+        $('button').on('click', function(){
+            location.reload();
+        });
             //     $('#restart').on('click', function(){ NEED TO TEST!!!
             // location.reload();
-        });
+        
     },
     
     transferStage() {
