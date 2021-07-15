@@ -21,7 +21,9 @@ const game = {
         $('#start-button').remove();
     },
     newPig() {
-        $('#main-image img').attr('src', './images/pig-baby.png');
+        $('#main-image img').attr({
+            'src':'./images/pig-baby.png',
+            'alt':'baby pig'});
         $('footer h3').text('Stage: 1');
     },
     displayName() {
@@ -59,12 +61,16 @@ const game = {
             game.loveScore = 6;
             game.foodScore = 6
             if (game.stage === 2) {
-                $('#main-image img').attr('src', './images/pig-piglet.png');
+                $('#main-image img').attr({
+                    'src':'./images/pig-piglet.png',
+                    'alt':'piglet'});
                 $('footer h3').text('Stage: 2');
                 game.time = 11;
                 game.startTimer();
             } else if (game.stage === 3) {
-                $('#main-image img').attr('src', './images/pig-adult.svg');
+                $('#main-image img').attr({
+                    'src':'./images/pig-adult.svg',
+                    'alt':'adult pig'});
                 $('footer h3').text('Stage: 3');
                 game.time = 11;
                 game.startTimer();
@@ -102,7 +108,9 @@ const game = {
         $('#clean-score').text(`0`);
         $('#love-score').text(`0`);
         $('#food-score').text(`0`);
-        $('#main-image img').attr('src', './images/pig-rip.png');
+        $('#main-image img').attr({
+            'src':'./images/pig-rip.png',
+            'alt':'headstone'});
         $('#main-image').after('<button>RESTART GAME</button>');
         $('#main-image img').removeAttr('class','animation');
         $('button').on('click', function(){
@@ -111,7 +119,9 @@ const game = {
     },
     
     transferStage() {
-        $('#main-image img').attr('src', './images/truck.svg');
+        $('#main-image img').attr({
+            'src':'./images/truck.svg',
+            'alt':'loading truck'});
         $('#main-image').append(`<div id="transfer"><p>CONGRATS! You did a great job. ${game.username} is now ready for her next form...</p><br><button id="next-button">NEXT</button></div>`);
         $('#next-button').on('click', game.breakfast);
         // $('#message p').text(`CONGRATS! ${game.username} is ready for transfer...`);
@@ -123,7 +133,9 @@ const game = {
     },
 
     breakfast(){
-        $('#main-image img').attr('src', './images/pig-breakfast.jpg');
+        $('#main-image img').attr({
+            'src':'./images/pig-breakfast.jpg',
+            'alt':'english muffin'});
         $('#transfer').remove();
         $('#main-image img').removeAttr('class','animation');
         $('#main-image').append(`<div><p>Yum! Breakfast was delicious. Thank you ${game.username} for supplying an unforgettable meal!</p><br><button id="restart">RESTART GAME</button></div>`);
