@@ -26,10 +26,20 @@ const game = {
     },
     updateScores(){
         $('#clean-score').text(`${game.cleanScore}`);
+        $('#love-score').text(`${game.loveScore}`);
+        $('#food-score').text(`${game.foodScore}`);
         $('#clean-button').on('click', function() {
             $('#clean-score').text(`${game.cleanScore+=1}`);
-        })
+        });
+        $('#love-button').on('click', function() {
+            $('#love-score').text(`${game.loveScore+=1}`);
+        });
+        $('#food-button').on('click', function() {
+            $('#food-score').text(`${game.foodScore+=1}`);
+        });
     },
+
+    // GAME TIMER 10 SECONDS //
     timer: null,
     startTimer() {
         this.timer = setInterval(game.reduceTime, 1000);
@@ -59,7 +69,7 @@ const game = {
         }
     },
 
-    //METER TIMER//
+    // METER TIMER //
     meter: null,
     startMeter(){
         this.meter = setInterval(game.reduceMeter, 1000);
@@ -70,12 +80,13 @@ const game = {
         if (game.cleanScore <=0 && game.stage !== 3) {
             clearInterval(game.meter);
             game.rip();
+            // set all scores to 0
         } else if (game.stage === 3){
             clearInterval(game.meter);
         }
     },
     rip(){
-        game.cleanScore=0;
+        // game.cleanScore=0;
         // game.loveScore=0;
         // game.foodScore=0;
         $('#main-image img').attr('src', './images/pig-rip.png');
