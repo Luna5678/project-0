@@ -112,6 +112,7 @@ const game = {
             'src':'./images/pig-rip.png',
             'alt':'headstone'});
         $('#main-image').after('<button>RESTART GAME</button>');
+        $('#main-image').after('<p>Oh no! She did not survive. She is now in pig heaven...</p>')
         $('#main-image img').removeAttr('class','animation');
         $('button').on('click', function(){
             location.reload();
