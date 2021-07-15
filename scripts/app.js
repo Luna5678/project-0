@@ -99,6 +99,10 @@ const game = {
         $('#love-score').text(`0`);
         $('#food-score').text(`0`);
         $('#main-image img').attr('src', './images/pig-rip.png');
+        $('#main-image').after('<button>NEXT</button>');
+            //     $('#restart').on('click', function(){ NEED TO TEST!!!
+            // location.reload();
+        });
     },
     
     transferStage() {
@@ -116,8 +120,10 @@ const game = {
     breakfast(){
         $('#main-image img').attr('src', './images/pig-breakfast.jpg');
         $('#transfer').remove();
-        $('#main-image').append(`<div><p>Yum! Breakfast was delicious. Thank you ${game.username} for supplying an unforgettable meal!</p><br><button id="restart">RESTART GAME</button></div>`)
-        $('#restart').on('click', location.reload());
+        $('#main-image').append(`<div><p>Yum! Breakfast was delicious. Thank you ${game.username} for supplying an unforgettable meal!</p><br><button id="restart">RESTART GAME</button></div>`);
+        $('#restart').on('click', function(){
+            location.reload();
+        });
     }
 
 };
