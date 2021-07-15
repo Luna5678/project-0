@@ -47,12 +47,14 @@ const game = {
     reduceTime() {
         game.time--;
         console.log(game.time);
-        if (game.cleanScore === 0) { //lost game
+        if (game.cleanScore === 0 || game.foodScore === 0 || game.loveScore === 0) { //lost game
             clearInterval(game.timer);
         } else if (game.time <=0) { //advance game
             game.stage+=1;
             clearInterval(game.timer);
-            game.cleanScore = 6;
+            game.cleanScore = 6; 
+            game.loveScore = 6;
+            game.foodScore = 6
             if (game.stage === 1) {
                 $('#main-image img').attr('src', './images/pig-piglet.png');
                 game.time = 11;
@@ -63,9 +65,11 @@ const game = {
                 game.startTimer();
             } else {
                 console.log('you won');
-                $('#clean-score').hide();
+                $('#clean-score').hide(); 
+                $('#love-score').hide(); 
+                $('#food-score').hide(); 
                 game.transferStage();
-            }
+            }   
         }
     },
 
@@ -76,19 +80,22 @@ const game = {
     },
     reduceMeter(){
         game.cleanScore--;
+        game.loveScore--;
+        game.foodScore--;
         $('#clean-score').text(`${game.cleanScore}`);
-        if (game.cleanScore <=0 && game.stage !== 3) {
+        $('#love-score').text(`${game.loveScore}`);
+        $('#food-score').text(`${game.foodScore}`);
+        if ((game.cleanScore <=0 || game.loveScore <=0 || game.foodScore <=0 ) && game.stage !== 3) {
             clearInterval(game.meter);
             game.rip();
-            // set all scores to 0
         } else if (game.stage === 3){
             clearInterval(game.meter);
         }
     },
     rip(){
-        // game.cleanScore=0;
-        // game.loveScore=0;
-        // game.foodScore=0;
+        $('#clean-score').text(`0`);
+        $('#love-score').text(`0`);
+        $('#food-score').text(`0`);
         $('#main-image img').attr('src', './images/pig-rip.png');
     },
     
